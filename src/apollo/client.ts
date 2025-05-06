@@ -7,16 +7,15 @@ const getApiUri = () => {
 };
 
 const httpLink = createHttpLink({
-  uri: getApiUri()
+  uri: getApiUri(),
 });
 
 const authLink = setContext((_, { headers }) => {
   const authHeaders = { 'x-api-key': awsConfig.aws_appsync_apiKey };
-  
   return {
     headers: {
       ...headers,
-      ...authHeaders
+      ...authHeaders,
     }
   };
 });

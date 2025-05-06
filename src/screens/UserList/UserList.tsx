@@ -8,6 +8,8 @@ import UserCard from 'components/UserCard/UserCard';
 import styles from './UserList.styles';
 import { useUserList } from './UserList.hook';
 import colors from 'common/colors';
+import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
+import ItemSeparator from 'components/ItemSeparator/ItemSeparator';
 
 const UserList = ({ navigation }: { navigation: any }) => {
   const {
@@ -19,27 +21,7 @@ const UserList = ({ navigation }: { navigation: any }) => {
     refreshing,
     onRefresh,
   } = useUserList();
-    console.log("🚀 ~ UserList ~ filtered:", filtered)
-
-  // if (loading) {
-  //   return (
-  //     <View style={styles.loader}>
-  //       <ActivityIndicator animating={true} size="large" />
-  //     </View>
-  //   );
-  // }
-
-  const ErrorComponent = () => (
-    <View style={styles.errorContainer}>
-      <Text style={[styles.errorTitle, styles.errorTextStyle]}>
-        Failed to load users
-      </Text>
-      <Text style={styles.errorTextStyle}>
-        {error?.message}. Please pull down to refresh and try again.
-      </Text>
-    </View>
-  );
-
+  
   return (
     <Wrapper>
       <FlatList
@@ -48,15 +30,15 @@ const UserList = ({ navigation }: { navigation: any }) => {
         renderItem={({ item }) => (
           <UserCard data={item} navigation={navigation} />
         )}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        ItemSeparatorComponent={ItemSeparator}
         ListHeaderComponent={
           <View>
-            <RadioSelector selected={selectedRole} onSelect={setSelectedRole} />
+            <RadioSelector testID="radio-selector" selected={selectedRole} onSelect={setSelectedRole} />
             <Text style={styles.title}>{selectedRole} Users</Text>
             {error && !loading && <ErrorComponent />}
             { loading && 
                <View style={styles.loader}>
-               <ActivityIndicator animating={true} size="large" color={colors.royalBlue}/>
+               <ActivityIndicator testID="ActivityIndicator" animating={true} size="large" color={colors.royalBlue}/>
              </View>
             }
           </View>

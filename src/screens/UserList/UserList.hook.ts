@@ -9,7 +9,6 @@ type Role = 'ADMIN' | 'MANAGER';
 
 export const useUserList = () => {
   const { loading, error, data, refetch } = useQuery<ListUsersQuery>(LIST_USERS);
-  console.log("🚀 ~ useUserList ~ data:", JSON.stringify(error))
 
   const [selectedRole, setSelectedRole] = useState<Role>('ADMIN');
   const [filtered, setFiltered] = useState<ZellerCustomer[] | undefined>([]);

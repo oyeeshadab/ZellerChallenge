@@ -10,5 +10,7 @@ export default {
     carnelian: '#b71c1c',
     aliceBlue: '#e9f2fd',
     trueBlue: '#0066cc',
+    coralRed: '#f44336',
+    darkCharcoal: '#333',
+    chineseSilver: '#cccccc'
 };
-  

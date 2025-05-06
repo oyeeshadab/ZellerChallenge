@@ -8,7 +8,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <PaperProvider>
-        <AppNavigator />
+        <AppNavigator testID="app-root"/>
       </PaperProvider>
     </ApolloProvider>
   );

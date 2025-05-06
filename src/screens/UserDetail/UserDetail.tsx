@@ -3,7 +3,7 @@ import { View, TouchableOpacity } from 'react-native';
 import { ActivityIndicator, Text } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import Wrapper from 'components/Wrapper/Wrapper';
-import { RootStackParamList } from '../../navigation/AppNavigator';
+import { RootStackParamList } from '../../navigation/AppNavigator.types';
 import { StackScreenProps } from '@react-navigation/stack';
 import styles from './UserDetail.styles'
 import { useUserDetail } from './UserDetail.hook';
@@ -19,7 +19,7 @@ const UserDetail = ({ route }: Props) => {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator animating={true} size="large" color={colors.royalBlue}/>
+        <ActivityIndicator testID="ActivityIndicator" animating={true} size="large" color={colors.royalBlue}/>
       </View>
     );
   }

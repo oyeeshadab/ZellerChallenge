@@ -5,7 +5,7 @@ export type User = {
     email: string;
     role: string;
   };
-  
+
   export type ListUsersQuery = {
     __typename?: 'Query';
     listZellerCustomers: {
@@ -13,7 +13,7 @@ export type User = {
       items: Array<User>;
     };
   };
-  
+
   export type GetUserQuery = {
     __typename?: 'Query';
     getUser: User;

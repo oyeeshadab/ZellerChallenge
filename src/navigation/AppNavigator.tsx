@@ -11,11 +11,11 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='UserList'
+        initialRouteName="UserList"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name='UserList' component={UserListScreen} />
-        <Stack.Screen name='UserDetail' component={UserDetailScreen} />
+        <Stack.Screen name="UserList" component={UserListScreen} />
+        <Stack.Screen name="UserDetail" component={UserDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

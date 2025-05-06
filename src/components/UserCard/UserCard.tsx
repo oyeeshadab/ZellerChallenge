@@ -1,4 +1,3 @@
-import { ObjMapLike } from 'graphql/jsutils/ObjMap';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './UserCard.styles'
@@ -9,8 +8,12 @@ export default function UserCard({ data, navigation }: Props) {
   const firstLetter = data?.name.charAt(0).toUpperCase();
 
   return (
-    <TouchableOpacity activeOpacity={0.5} 
-    onPress={() => navigation.navigate('UserDetail', { userId: data.id })}
+    <TouchableOpacity
+      activeOpacity={0.5}
+      testID="user-card"
+      onPress={() => navigation.navigate('UserDetail',
+        { userId: data.id })
+      }
     >
       <View style={styles.container}>
         <View style={styles.avatar}>
